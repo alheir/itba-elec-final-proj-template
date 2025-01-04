@@ -1,0 +1,137 @@
+\documentclass[a4paper,titlepage,oneside]{article}
+
+% ------------------------------------
+% Document Setup
+% ------------------------------------
+\usepackage[top=1.25in,bottom=1.25in,left=1in,right=1in]{geometry}
+\usepackage[T1]{fontenc}
+
+% ------------------------------------
+% Fonts
+% ------------------------------------
+\usepackage{cmbright}   % Default font (sans serif)
+\usepackage[scaled]{beramono}  % Monospaced font
+
+% ------------------------------------
+% Language and Hyphenation
+% ------------------------------------
+\usepackage[spanish, mexico]{babel}
+
+% ------------------------------------
+% Hyperlinks
+% ------------------------------------
+\usepackage[colorlinks,
+            citecolor=red,
+            filecolor=black,
+            linkcolor=blue,
+            urlcolor=blue,
+            breaklinks]{hyperref}
+
+% ------------------------------------
+% PDF Metadata
+% ------------------------------------
+\hypersetup{pdfauthor={AUTOR1, AUTOR2, AUTOR3, AUTOR4},
+            pdftitle={pdftitle}}
+
+% ------------------------------------
+% Graphics and Placement
+% ------------------------------------
+\usepackage{graphicx}
+\usepackage{float}
+
+% ------------------------------------
+% Math
+% ------------------------------------
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{nicefrac}
+\usepackage{siunitx}  % SI units
+
+% ------------------------------------
+% Quotation Marks and Symbols
+% ------------------------------------
+\usepackage{csquotes}
+
+% ------------------------------------
+% Placeholder Text (for testing)
+% ------------------------------------
+\usepackage{lipsum}  % Remove for final version
+
+% ------------------------------------
+% Citations and Bibliography
+% ------------------------------------
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{bibfile.bib}
+
+% ------------------------------------
+% Appendix
+% ------------------------------------
+\usepackage[title,toc]{appendix}
+
+% ------------------------------------
+% Local TOC
+% ------------------------------------
+\usepackage{etoc}
+\newlength\tocrulewidth
+\setlength{\tocrulewidth}{0.4pt}
+
+\newcommand{\localtoc}{
+\microtypesetup{protrusion=false}
+\begingroup
+  \parindent=0em
+  \etocsettocstyle{\vskip0.5\baselineskip\textbf{Índice}\par\rule{\linewidth}{\tocrulewidth}\vskip0.5\baselineskip}{\rule{\linewidth}{\tocrulewidth}\vskip1\baselineskip\par}
+  \localtableofcontents
+\endgroup
+\microtypesetup{protrusion=true}
+}
+
+\addto\captionsspanish{\renewcommand{\contentsname}{Índice general}}
+
+% ------------------------------------
+% Headers and Footers
+% ------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\small\MakeUppercase\leftmark}
+\fancyhead[R]{\thepage}
+
+\fancyfoot[L]{\includegraphics[height=8pt]{front/caratula/itba_logo.jpg}}
+\fancyfoot[R]{\small\the\year}
+
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0.7pt}
+\setlength{\headheight}{12.5pt}
+\addtolength{\topmargin}{-0.5pt}
+
+% ------------------------------------
+% Numbering and Counters
+% ------------------------------------
+\numberwithin{equation}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% ------------------------------------
+% Glossary and Acronyms
+% ------------------------------------
+% https://www.overleaf.com/learn/latex/Glossaries
+\usepackage[acronym,toc]{glossaries}
+\makeglossaries
+\loadglsentries{front/glossary/terms}
+\loadglsentries{front/glossary/acronyms}
+
+% ------------------------------------
+% Typography Improvements
+% ------------------------------------
+% https://www.khirevich.com/latex/microtype/
+\usepackage[
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100,
+    stretch=10,
+    shrink=10
+]{microtype}

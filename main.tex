@@ -1,0 +1,145 @@
+\input{preamble.tex}
+\usepackage{subfiles}
+
+\begin{document}
+
+% ------------------------------------
+% Front Matter
+% ------------------------------------
+
+\subfile{front/caratula/caratula}
+\clearpage
+
+\pagenumbering{Roman}
+
+\section*{Resumen}
+\addcontentsline{toc}{section}{Resumen}
+\subfile{front/resumen/resumen}
+\clearpage
+
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+\subfile{front/resumen/abstract}
+\clearpage
+
+\section*{Agradecimientos}
+\addcontentsline{toc}{section}{Agradecimientos}
+\subfile{front/agradecimientos/agradecimientos}
+\clearpage
+
+\printglossary[type=\acronymtype,title=Acrónimos, toctitle=Acrónimos]
+\clearpage
+
+\printglossary[title=Definiciones, toctitle=Definiciones]
+\clearpage
+
+\microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true}
+\clearpage
+
+\pagenumbering{arabic}
+
+% ------------------------------------
+% Main Body
+% ------------------------------------
+
+\section{Introducción}
+\label{sec:introduccion}
+\localtoc
+\subfile{body/introduccion/introduccion}
+\clearpage
+
+\section{Objetivos}
+\label{sec:objetivos}
+\localtoc
+\subfile{body/objetivos/objetivos}
+\clearpage
+
+\section{Definición del producto}
+\label{sec:definicion_producto}
+\localtoc
+\subfile{body/definicion_producto/definicion_producto}
+\clearpage
+
+\section{Plan de validación}
+\label{sec:plan_val}
+\localtoc
+\subfile{body/plan_val/plan_val}
+\clearpage
+
+\section{Análisis de factibilidad}
+\label{sec:analisis_fact}
+\localtoc
+\subfile{body/analisis_fact/analisis_fact}
+\clearpage
+
+\section{Ingeniería del detalle}
+\label{sec:ing_detalle}
+\localtoc
+\subfile{body/ing_detalle/ing_detalle}
+\clearpage
+
+\section{Construcción del prototipo}
+\label{sec:cons_prototipo}
+\localtoc
+\subfile{body/cons_prototipo/cons_prototipo}
+\clearpage
+
+\section{Validación del prototipo}
+\label{sec:val_prototipo}
+\localtoc
+\subfile{body/val_prototipo/val_prototipo}
+\clearpage
+
+\section{Confiabilidad}
+\label{sec:confiabilidad}
+\localtoc
+\subfile{body/confiabilidad/confiabilidad}
+\clearpage
+
+\section{Conclusiones}
+\label{sec:conclusiones}
+\subfile{body/conclusiones/conclusiones}
+\clearpage
+
+% ------------------------------------
+% Back Matter
+% ------------------------------------
+
+% ---
+
+\subfile{back/bib/bib}
+\clearpage
+
+% ---
+
+% ---
+
+\renewcommand{\appendixname}{Anexo}
+\renewcommand{\appendixpagename}{Anexos}
+\renewcommand{\appendixtocname}{Anexos}
+
+\begin{appendices}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thepage}{\Roman{section}--\arabic{page}}
+\fancyhead[L]{\small\MakeUppercase Anexo \leftmark}
+
+\section{tempanexoi}
+\setcounter{page}{1}
+\label{anexo:tempanexoi}
+\localtoc
+\subfile{back/anexos/tempanexoi/tempanexoi}
+\clearpage
+
+\section{tempanexoii}
+\setcounter{page}{1}
+\label{anexo:tempanexoii}
+\localtoc
+\subfile{back/anexos/tempanexoii/tempanexoii}
+\clearpage
+\end{appendices}
+
+% ---
+
+\end{document}
